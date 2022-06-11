@@ -38,6 +38,9 @@ Route::get('/gallery', function () {
 Route::get('/feedback', function () {
     return view('feedback');
 })->name('feedbackHTML'); 
+
+Route::post('/index', [MainController::class, 'feedback'])->name('contact-form');
+
 // именные отслеживания url адресов ->name('feedback')
 // обращаемся в html шаблонах не по ur адресам, а по названию различных url адрессов - contact-form
 
@@ -56,5 +59,3 @@ Route::get('/feedback', function () {
 // когда будем переходить по url /feedback/commentForm и передавать данные с помощью метода post
 // то будет вызываться MainController и обращаемся к функции feedback 
 // Route::post('/feedback/commentForm', 'App\Http\Controllers\MainController@feedback')->name('contact-form');
-
-Route::post('/index', [MainController::class, 'feedback'])->name('contact-form');

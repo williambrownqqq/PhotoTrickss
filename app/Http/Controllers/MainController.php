@@ -11,25 +11,6 @@ use App\Models\Course;
 class MainController extends Controller
 {
 
-    // public function courses(){
-    //     $courses = new Course();
-    //     $data = $courses->getCourses();
-    //     return view('pets', ['data'=>$data]);
-    // }
-
-    // public function index(){
-    //     $courses = new Course();
-    //     $data = $courses->getCourses();
-    //     $reviews = new ModelsReview();
-    //     $data2 = $reviews->getReviews();
-    //     return view('index', ['data'=>$data, 'data2'=>$data2]);
-    // }
-
-    // public function course($course){
-    //     $courses = new Course();
-    //     $course = $courses->getByName($course);
-    //     return view('index', compact('index'));
-    // }
     public function comment(MainRequest $request){
         $comment = new Comment();
         $data = $comment->getComment($request);
