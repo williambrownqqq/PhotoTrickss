@@ -2,10 +2,6 @@
 @extends('layouts.app')
 <!-- куда мы встраиваем наш блок кода, в какую секцию -->
 
-@section('title-block')
-Main
-@endsection
-
 @section('main')
 <!DOCTYPE html>
 <html lang="en">

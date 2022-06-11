@@ -88,6 +88,23 @@ form .buttonSubmit{
 .buttonSubmit input:hover{
     background: linear-gradient(-135deg, rgb(166, 192, 234), rgb(128, 172, 218));
 }
+
+.alert {
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    outline: none;
+    background: rgb(229, 170, 170);
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+.alert li{
+    list-style: none;
+    padding-left: 10px;
+    color: rgb(145, 11, 11);
+}
 /* @media screen and(max-weight: 584px){
     .containerr{
         max-width: 900px;
@@ -160,7 +177,6 @@ nav ul {
 nav ul li {
     display: inline-block;
     padding: 16px 40px;
-    ;
 }
 
 nav ul li a {

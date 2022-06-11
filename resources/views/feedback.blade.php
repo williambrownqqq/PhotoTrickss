@@ -72,15 +72,15 @@
                 <div class="buttonSubmit">
                         <input type="submit" value="Submit">
                 </div>
-                @if($errors->any())
-        <div class="alert">
-            <ul>
-                @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+            @if($errors->any())
+            <div class="alert">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             </form>
             </div>
         </div>
