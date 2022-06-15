@@ -1,6 +1,4 @@
-<!-- от какого файла мы все наследуем -->
 @extends('layouts.app')
-<!-- куда мы встраиваем наш блок кода, в какую секцию -->
 
 @section('main')
 <!DOCTYPE html>
@@ -21,7 +19,7 @@
         <header>
         <nav class="navy">
             <div class="webLogo">
-                <img class="cameraLogo" src="fragments/cameraLogo.svg">
+                <img class="cameraLogo" src="{{ asset('fragments/cameraLogo.svg') }}">
             </div>
 
             <div class="photoTricks">
@@ -30,11 +28,11 @@
 
             <div class="menu">
                 <ul id="navID">
-                    <li><a href="index">Home</a></li>
-                    <li><a href="collabs">Project</a></li>
-                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="{{ route('indexHTML')}}">Home</a></li>
+                    <li><a href="{{ route('collabsHTML')}}">Project</a></li>
+                    <li><a href="{{ route('galleryHTML')}}">Gallery</a></li>
                     <li><a id="aboutID">About</a></li>
-                    <li><a href="contacts">Contact</a></li>
+                    <li><a href="{{ route('contactsHTML')}}">Contact</a></li>
                 </ul>
             </div>
             <div onclick="toggleMenu()" class="burger">
@@ -51,21 +49,9 @@
                 <div class="photoANDtext">
                     <img class="myPhoto" src="{{ asset('fragments/'.$preset->imgID.'.jpg') }}">
                     <div class="contactsTXT">
-                        <p>I am Alex Zanchenko, I am second year KPi software engineer student from Kiev, Ukraine. My
-                            hobbies are sport and photography, also a contemporary landscape photograpy.My hobbies is
-                            driven by a fascination with society, time, and the ever-changing environments that surround
-                            us.</p>
-
-                            <p>With a desire to share my experience and help others, at the start of 2022 I created
-                            PhotoTricks—an Internet resource that focuses on both the craft and technique of film
-                            photography (and also digital). My goal is to provide a resource for enthusiasts of all
-                            skill levels that both educates and entertains.</p>
-
-                            <p>I am also programmer and I developed this layout and the site. I believe that programming
-                            skills help me to improve a lot of soft skill.
-                            For print inquiries, media, or commissions, please send an email to:
-                            alexey.zanchenko@gmail.com
-                        </p>
+                        <p>{{$preset->name}}</p >
+                        <p>{{$preset->description}}</p>
+                        <p>{{$preset->price}} $</p>
                     </div>
                 </div>
             </div>
@@ -113,7 +99,7 @@
 
 
                 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-                <script type="text/javascript" src="navy.js"></script>
+                <script type="text/javascript" src="{{ asset('navy.js') }}"></script>
 
 
 

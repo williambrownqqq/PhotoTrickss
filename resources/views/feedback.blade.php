@@ -123,7 +123,7 @@
 
 
                 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-                <script type="text/javascript" src="navy.js"></script>
+                <script type="text/javascript" src="{{ asset('navy.js') }}"></script>
 
 
 
