@@ -83,113 +83,51 @@
                 <div class="chooseYourCourse">
 
                     <p class="title">Choose your course</p>
+                    @foreach($courses as $course)
+                       
 
-                    <div class="cards">
-                        <a href="https://www.udemy.com/course/learn-landscapes/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.EN_cc.ROW&utm_content=deal4584&utm_term=_._ag_77879424454_._ad_535397279670_._kw__._de_c_._dm__._pl__._ti_dsa-1007766171352_._li_9061020_._pd__._&matchtype=&gclid=CjwKCAjw4ayUBhA4EiwATWyBrmJXWH5unznIMHG_gz5DxPVJjYfyBwAYiM37yPYTQSAH_fdk3JYTdRoCJxgQAvD_BwE">
+                        <div class="cards">
+                        <a href="{{$course->links}}">
                         <div class="card-img">
-                            <img src="{{ asset('fragments/Landskape.webp') }}" alt="fuji">
+                            <img src="{{ asset('fragments/'.$course->imgID.'.webp') }}" alt="fuji">
                         </div>
                         <div class="card-body">
-                            <p>Corey Wolfenbarger</p>
-                            <h2>LANDSCAPE PHOTOGRAPHER ON FILM WITH COREY WOLFENBARGER</h2>
+                    
+                            <p>{{$course->author->name}}</p>
+                        
+                            <!-- <p>Corey Wolfenbarger</p> -->
+                            <h2>{{$course->name}}</h2>
                             <div class="grey-block">
                                 <p class ="back">Course</p>
-                                <p class = "noback">| 20 hours</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>   
-
-                    <div class="cards">
-                        <a href="https://fujifilm-dsc.com/en/manual/x-t3/first_step/basic_setup/index.html">
-                        <div class="card-img">
-                            <img src="{{ asset('fragments/FujiCourse.webp') }}" alt="fuji">
-                        </div>
-                        <div class="card-body">
-                            <p>Peter McKinnon</p>
-                            <h2>FUJI X100V SET-UP FOR FILM PHOTOGRAPHY WITH PETER MCKINNON</h2>
-                            <div class="grey-block">
-                                <p class ="back">Course</p>
-                                <p class = "noback">| 120 hours</p>
+                                <p class = "noback">| {{$course->hours}}</p>
                             </div>
                         </div>
                     </a>
                     </div>  
-                    <div class="cards">
-                        <a href="https://markbone.com/">
-                        <div class="card-img">
-                            <img src="{{ asset('fragments/Workshop.webp') }}" alt="fuji">
-                        </div>
-                        <div class="card-body">
-                            <p>Mark Bone</p>
-                            <h2>THE FILM PHOTOGRAPHY WORKSHOP WITH MARK BONE</h2>
-                            <div class="grey-block">
-                                <p class ="back">Course</p>
-                                <p class = "noback">| 90 hours</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>  
-                    <div class="cards">
-                        <a href="https://www.tracksmith.com/journal/article/joe-greers-decisive-moment">
-                        <div class="card-img">
-                            <img src="{{ asset('fragments/StreetPhotography.webp') }}" alt="fuji">
-                        </div>
-                        <div class="card-body">
-                            <p>Joe Greer</p>
-                            <h2>SUMMER STREET PHOTOGRAPHY ON FILM WITH JOE GREER</h2>
-                            <div class="grey-block">
-                                <p class ="back">Course</p>
-                                <p class = "noback">| 80 hours</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>  
+                        
+                    @endforeach
                 
                 </div>
 
                 <div class="Lightroom-presets">
                     <p class="title">Lightroom presets</p>
+                    @foreach($presets as $preset)
+               
+
                     <div class="LightRoomcards">
-                        <a href="https://www.psdly.com/peter-mckinnon-lightroom-presets-v4-2021">
+                        <a href=" {{ url('index/preset', ['id' => $preset->id]) }}">
+                       
                         <div class="LightRoomcard-img">
-                            <img src="{{ asset('fragments/2021V4Vertical4w.jpg') }}" alt="fuji">
+                            <img src="{{ asset('fragments/'.$preset->imgID.'.jpg') }}" alt="fuji">
                         </div>
                         <div class="LightRoomcard-body">
-                            <p>PM Lightroom V4 Presets 2021</p>
-                        </div>
-                    </a>
-                    </div>    
-                    <div class="LightRoomcards">
-                        <a href="https://freepreset.net/peter-mckinnon-v3-presets.html">
-                        <div class="LightRoomcard-img">
-                            <img src="{{ asset('fragments/2019v3Presetsw.jpg') }}" alt="fuji">
-                        </div>
-                        <div class="LightRoomcard-body">
-                            <p>PM Lightroom V3 Presets 2019</p>
+                            <p>{{$preset->name}}</p>
                         </div>
                     </a>
                     </div> 
-                    <div class="LightRoomcards">
-                        <a href="https://www.creativebloq.com/features/best-lightroom-presets">
-                        <div class="LightRoomcard-img">
-                            <img src="{{ asset('fragments/2018FallPresetVertw.jpg') }}" alt="fuji">
-                        </div>
-                        <div class="LightRoomcard-body">
-                            <p>PM Lightroom V2 Presets 2018</p>
-                        </div>
-                    </a>
-                    </div> 
-                    <div class="LightRoomcards">
-                        <a href="https://elements.envato.com/lp/lightroom-presets/?adposition=&gclid=CjwKCAjw4ayUBhA4EiwATWyBroUeV1eibiVQBesZj8FqaE7j7D4hBBb96l6X0PQKq8g39kcd_pJ8JxoCo8QQAvD_BwE">
-                        <div class="LightRoomcard-img">
-                            <img src="{{ asset('fragments/2017V1Verticalw.jpg') }}" alt="fuji">
-                        </div>
-                        <div class="LightRoomcard-body">
-                            <p>PM Lightroom V1 Presets 2017</p>
-                        </div>
-                    </a>
-                    </div> 
+                        
+                    @endforeach
+                   
                 </div>
 
                 <div class="partners">

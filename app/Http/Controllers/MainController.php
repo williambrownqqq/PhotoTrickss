@@ -7,17 +7,27 @@ use App\Http\Controllers\Review;
 use App\Http\Requests\MainRequest;
 use App\Models\Comment;
 use App\Models\Course;
+use App\Models\Preset;
 
 class MainController extends Controller
 {
 
     public function comment(MainRequest $request){
-        $comment = new Comment();
-        $data = $comment->getComment($request);
+        // $comment = new Comment();
+        // $data = $comment->getComment($request);
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $social = $request->input('social-network');
+        $comment = $request->input('commentInput');
+
+        $query = Comment::firstOrCreate(array("name"=> $name, "name"=> $name, "email"=> $email, "social_network"=> $social, "txt"=> $comment,)); 
     }
 
     public static function index(){
-        return view('index');
+        $courses = Course::all();
+        $presets = Preset::all();
+        return view('index')->with("courses", $courses)->with("presets", $presets);
     }
 
     public static function collabs(){
@@ -30,6 +40,11 @@ class MainController extends Controller
 
     public static function gallery(){
         return view('gallery');
+    }
+
+    public function preset($id){
+        $preset=Preset::find($id);
+        return view("preset")->with("preset", $preset);;
     }
 
     public function feedback(MainRequest $request) {
@@ -45,6 +60,5 @@ class MainController extends Controller
         $this->comment($request);
         return MainController::index();
 
-        // dd($request);
     }
 }

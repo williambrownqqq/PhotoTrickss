@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\MainRequest;
 class Comment extends Model
 {
+    protected $table = "comments";
+    public $timestamps = false;
+    protected $fillable = ['name', 'email', 'social_network', 'txt'];
+
     public function getComment(MainRequest $request) {
         $jsonObj = new Json();
         $array_data = $jsonObj->getJson();

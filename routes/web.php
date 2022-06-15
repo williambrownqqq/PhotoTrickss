@@ -4,25 +4,17 @@ use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //  создаем новый маршрут 
 // Route - статический доступ к методу get класса Route
 // 1 аргумент - маршрут - адрес 
 // 2 аргумент - оброботчик - функция, которая возвращает что-то как ответ на наш запрос
 // MainController - class, дальше метод класса
 
-Route::get('/index', function () {
-    return view('index');
-})->name('indexHTML');
+// Route::get('/', [MainController::class, 'home'])->name('home');
+
+// Route::get('/index', function () {
+//     return view('index');
+// })->name('indexHTML');
 
 Route::get('/contacts', function () {
     return view('contacts');
@@ -39,7 +31,9 @@ Route::get('/feedback', function () {
     return view('feedback');
 })->name('feedbackHTML'); 
 
+Route::get('/index', [MainController::class, 'index'])->name('indexHTML');
 Route::post('/index', [MainController::class, 'feedback'])->name('contact-form');
+Route::get('/index/preset/{id}', [MainController::class, 'preset']);
 
 // именные отслеживания url адресов ->name('feedback')
 // обращаемся в html шаблонах не по ur адресам, а по названию различных url адрессов - contact-form

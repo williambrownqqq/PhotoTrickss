@@ -7,9 +7,9 @@
 <html lang="en">
 
 <head>
-    <title>Feedback</title>
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/feedback.css">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="{{ asset('styles/contacts.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/footer.css') }}">
     <!-- icons -->
     <script src="https://kit.fontawesome.com/c18b586157.js" crossorigin="anonymous"></script>
     <!-- scroll -->
@@ -17,7 +17,8 @@
 </head>
 
 <body>
-    <header>
+    <div class="wrapper">
+        <header>
         <nav class="navy">
             <div class="webLogo">
                 <img class="cameraLogo" src="fragments/cameraLogo.svg">
@@ -29,11 +30,11 @@
 
             <div class="menu">
                 <ul id="navID">
-                    <li><a href="{{ route('indexHTML')}}">Home</a></li>
-                    <li><a href="{{ route('collabsHTML')}}">Project</a></li>
-                    <li><a href="{{ route('galleryHTML')}}">Gallery</a></li>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="collabs">Project</a></li>
+                    <li><a href="gallery">Gallery</a></li>
                     <li><a id="aboutID">About</a></li>
-                    <li><a href="{{ route('contactsHTML')}}">Contact</a></li>
+                    <li><a href="contacts">Contact</a></li>
                 </ul>
             </div>
             <div onclick="toggleMenu()" class="burger">
@@ -42,49 +43,37 @@
                 <div class="line3"></div>
             </div>
         </nav>
-    </header>
-        
-        <div class="wrapper">
-            <div class="containerr">
-            <div class="FormTitle">Leave a comment</div>
-            <!-- <form action="/feedback/commentForm" method="post"> -->
-            <form action="{{ route('contact-form')}}" method="post">
-                @csrf
-                <div class="user-datails">
-                    <div class="input-box">
-                        <span class="details">Full Name</span>
-                        <input type="text" placeholder="Enter your name" id="name" name="name" class="form-content" required>
+        </header>
+
+        <div id="content" class="content">
+            <div class="contacts">
+                <p class="title">{{$preset->name}}</p>
+                <div class="photoANDtext">
+                    <img class="myPhoto" src="{{ asset('fragments/'.$preset->imgID.'.jpg') }}">
+                    <div class="contactsTXT">
+                        <p>I am Alex Zanchenko, I am second year KPi software engineer student from Kiev, Ukraine. My
+                            hobbies are sport and photography, also a contemporary landscape photograpy.My hobbies is
+                            driven by a fascination with society, time, and the ever-changing environments that surround
+                            us.</p>
+
+                            <p>With a desire to share my experience and help others, at the start of 2022 I created
+                            PhotoTricks—an Internet resource that focuses on both the craft and technique of film
+                            photography (and also digital). My goal is to provide a resource for enthusiasts of all
+                            skill levels that both educates and entertains.</p>
+
+                            <p>I am also programmer and I developed this layout and the site. I believe that programming
+                            skills help me to improve a lot of soft skill.
+                            For print inquiries, media, or commissions, please send an email to:
+                            alexey.zanchenko@gmail.com
+                        </p>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Email</span>
-                        <input type="text" placeholder="Enter your email" id="email" name="email" class="form-content" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Social-networks</span>
-                        <input type="text" placeholder="Enter your social-network" name="social-network" id="social-network" class="form-content" required>
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Comments</span>
-                        <input  type="text" placeholder="Enter your comment" id="commentInput" name="commentInput" class="form-content" required>
-                    </div>
-                    
                 </div>
-                <div class="buttonSubmit">
-                        <input type="submit" value="Submit">
-                </div>
-            @if($errors->any())
-            <div class="alert">
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            </form>
             </div>
         </div>
-        <footer class="footer">
+ 
+
+
+                    <footer class="footer">
                         <div class="container">
                             <div class="row">
                                 <div class="footer-col">
@@ -118,7 +107,8 @@
                                 </div>
                             </div>
                         </div>
-        </footer>
+                    </footer>
+                </div>
 
 
 
